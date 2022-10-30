@@ -33,7 +33,7 @@ This script adds an NLNOG RING query button to the prefix page. It allows you to
 This script displays various datapoints abouts any given network fetched from the PeeringDB website and displays them on the overview page. 
 
 * Author: **Evan Pratten**
-* Notes: **n/a**
+* Notes: **You need to grab an API key from PeeringDB and enter it into the script file before using.**
 
 # License
 GPLv3
