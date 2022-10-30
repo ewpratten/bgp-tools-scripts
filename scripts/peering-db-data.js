@@ -16,8 +16,8 @@ function get_top_tabs() {
 }
 
 // Add an item to the top tab bar
-function add_top_tab_item(name, url) {
-    get_top_tabs().innerHTML += `<li class="custom-top-tab-item"><a href="${url}">${name}</a></li>`;
+function add_top_tab_item(name, url, newtab = false) {
+    get_top_tabs().innerHTML += `<li class="custom-top-tab-item"><a href="${url}"${newtab ? `target="_blank" rel="noreferrer"` : ''}>${name}</a></li>`;
 }
 
 // Get the page id (This is an ASN or prefix)
