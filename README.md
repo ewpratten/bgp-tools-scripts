@@ -9,18 +9,27 @@ Install the Tampermonkey extension for your browser and create a new script. The
 # Overview of our scripts
 
 ## ixp-peering-capacity.js
+
+![Screnshot of the IX peering capacity script](https://i.imgur.com/9sMQt8w.png)
+
 This script shows the total IX peering capacity of any given network on the overview page under the website field.
 
 * Author: **Kjartan Hrafnkelsson**
 * Notes: **Not very well written, open to contributions**
 
 ## nlnog-ring-lg.js
+
+![Screenshot of the NLNOG RING LG script](https://i.imgur.com/zJBtCjO.png)
+
 This script adds an NLNOG RING query button to the prefix page. It allows you to easily open the NLNOG RING looking glass for any given prefix.
 
 * Author: **Evan Pratten**
 * Notes: **n/a**
 
 ## peering-db-data.js
+
+![Screnshot of the PeeringDB data script](https://i.imgur.com/Z1xaJjE.png)
+
 This script displays various datapoints abouts any given network fetched from the PeeringDB website and displays them on the overview page. 
 
 * Author: **Evan Pratten**
