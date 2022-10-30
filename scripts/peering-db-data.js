@@ -46,7 +46,7 @@ function get_page_id() {
     `;
 
     // Add PeeringDB button
-    add_top_tab_item(`<img src="https://www.google.com/s2/favicons?sz=64&domain=peeringdb.com" style="width:16px;">`, `https://peeringdb.com/asn/${get_page_id()}`, true);
+    add_top_tab_item(`<img src="https://www.google.com/s2/favicons?sz=64&domain=peeringdb.com" style="width:16px;">`, `https://peeringdb.com/asn/${get_page_id()}`);
 
     // Handle adding a domain query button
     var asn_info_text = document.getElementById("network-number").innerText;
