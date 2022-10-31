@@ -5,29 +5,14 @@
 // @description  PeeringDB integration for BGP.tools
 // @author       Evan Pratten <ewpratten@gmail.com>
 // @match        https://bgp.tools/as/*
+// @match        https://bgp.tools/prefix/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=bgp.tools
 // @require      https://raw.githubusercontent.com/Ewpratten/bgp-tools-scripts/master/scripts/utils.js
 // ==/UserScript==
 
 const PEERINGDB_API_KEY = "<your_api_key>";
 
-// Entry
-(function () {
-    'use strict';
-
-    // Inject custom styles
-    document.head.innerHTML += `
-    <style>
-        .section-tabs ul li a {
-            padding: 11px 11px 9px 9px;
-        }
-    </style>`;
-    document.head.innerHTML += `
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-    `;
-
+function patch_as_page() {
     // Add PeeringDB button
     add_top_tab_item(`<img src="https://www.google.com/s2/favicons?sz=64&domain=peeringdb.com" style="width:16px;">`, `https://peeringdb.com/asn/${get_page_id()}`);
 
@@ -116,5 +101,59 @@ const PEERINGDB_API_KEY = "<your_api_key>";
             }
         )
     );
+}
+
+function patch_prefix_page() {
+
+    // Get the primary ASN announcing this prefix
+    var primary_asn = document.getElementById("network-number").getElementsByTagName("strong")[0].getElementsByTagName("a")[0].innerText.match(/^AS(?<asn>\d+)/).groups.asn;
+
+    // Make a peeringdb request for the asn
+    fetch(
+        `https://www.peeringdb.com/api/net?asn=${primary_asn}`,
+        {
+            headers: {
+                'Authorization': `Api-Key ${PEERINGDB_API_KEY}`
+            }
+        }
+    ).then(
+        resp => resp.json().then(
+            data => {
+                // Skip if there is no result for this asn
+                if (data.data.length == 0) { return; }
+
+                // Rewrite the primary ASN to include the name
+                document.getElementById("network-number").getElementsByTagName("strong")[0].children[0].innerHTML = `<strong><a href="/as/${primary_asn}">AS${primary_asn}</a> (${data.data[0].name}),</strong`;
+            }
+        )
+    );
+}
+
+// Entry
+(function () {
+    'use strict';
+
+    // Inject custom styles
+    document.head.innerHTML += `
+    <style>
+        .section-tabs ul li a {
+            padding: 11px 11px 9px 9px;
+        }
+    </style>`;
+    document.head.innerHTML += `
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    `;
+
+    // Per-page changes
+    switch (get_page_type()) {
+        case "as":
+            patch_as_page();
+            break;
+        case "prefix":
+            patch_prefix_page();
+            break;
+    }
 
 })();

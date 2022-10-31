@@ -15,3 +15,10 @@ function get_page_id() {
     if (path_parts.length >= 4) { return path_parts[2] + "/" + path_parts[3]; }
     return null;
 }
+
+// Get the page type (index, asn, prefix, etc)
+function get_page_type() {
+    var path_parts = document.location.pathname.split("/");
+    if (path_parts.length >= 2) { return path_parts[1]; }
+    return null;
+}
