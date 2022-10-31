@@ -123,7 +123,7 @@ function patch_prefix_page() {
                 if (data.data.length == 0) { return; }
 
                 // Rewrite the primary ASN to include the name
-                document.getElementById("network-number").getElementsByTagName("strong")[0].children[0].innerHTML = `<strong><a href="/as/${primary_asn}">AS${primary_asn}</a> (${data.data[0].name}),</strong`;
+                document.getElementById("network-number").getElementsByTagName("strong")[0].children[0].outerHTML = `<strong><a href="/as/${primary_asn}">AS${primary_asn}</a> (${data.data[0].name})</strong`;
             }
         )
     );
