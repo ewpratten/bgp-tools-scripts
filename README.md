@@ -1,7 +1,7 @@
 ![Screenshot of the PeeringDB info script](https://i.imgur.com/E4z5J8L.png)
 
 # Huh, what's this?
-These are some public userscripts for the website www.bgp.tols written in JS for Tampermonkey. BGP.tools is used for exploring the internet ecosystem with support for querying for ASNs, IPs, IXPs, and even DNS with pages displaying network rankings & e.t.c. Our scripts extend the functionality of the site to display some useful information as well as to implement some custom functionality.
+These are some public userscripts for the website www.bgp.tools written in JS for Tampermonkey. BGP.tools is used for exploring the internet ecosystem with support for querying for ASNs, IPs, IXPs, and even DNS with pages displaying network rankings & e.t.c. Our scripts extend the functionality of the site to display some useful information as well as to implement some custom functionality.
 
 # Install
 Install the Tampermonkey extension for your browser and create a new script. The copy paste the source of whichever script(s) you'd like to install into the code area and hit save. The script should automatically start working after saving.
