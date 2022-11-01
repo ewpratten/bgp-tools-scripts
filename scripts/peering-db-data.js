@@ -93,8 +93,7 @@ function patch_as_page() {
                 ).then(
                     resp => resp.json().then(
                         data => {
-                            document.getElementById("network-number").innerHTML += `<br>Operated by <strong>${data.data[0].name}</strong`;
-
+                            document.getElementById("network-number").innerHTML += `<br>Operated by <strong><a href="https://www.peeringdb.com/org/${asn_info.org_id}">${data.data[0].name}</a></strong`;
                         }
                     )
                 )
