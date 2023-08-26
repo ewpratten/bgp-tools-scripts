@@ -68,7 +68,7 @@ function patch_as_page() {
                     document.getElementById("network-number").innerHTML += `<br>Peering <strong>${asn_info.policy_general}</strong>`;
                 }
                 if (asn_info.irr_as_set) {
-                    document.getElementById("network-number").innerHTML += `<br>Default as-set <strong><a href="https://irrexplorer.nlnog.net/as-set/${asn_info.irr_as_set}">${asn_info.irr_as_set}</a></strong>`;
+                    document.getElementById("network-number").innerHTML += `<br>Default as-set <strong><a href="https://bgp.tools/as-set/${asn_info.irr_as_set}">${asn_info.irr_as_set}</a></strong>`;
                 }
 
                 // Add network link buttons
