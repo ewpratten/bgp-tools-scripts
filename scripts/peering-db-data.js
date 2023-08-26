@@ -7,7 +7,7 @@
 // @match        https://bgp.tools/as/*
 // @match        https://bgp.tools/prefix/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=bgp.tools
-// @require      https://raw.githubusercontent.com/Ewpratten/bgp-tools-scripts/master/scripts/utils.js
+// @require      https://raw.githubusercontent.com/Ssmidge/bgp-tools-scripts/master/scripts/utils.js
 // ==/UserScript==
 
 const PEERINGDB_API_KEY = "<your_api_key>";
