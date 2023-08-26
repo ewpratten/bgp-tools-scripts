@@ -6,7 +6,7 @@
 // @author       Evan Pratten <ewpratten@gmail.com>
 // @match        https://bgp.tools/prefix/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=bgp.tools
-// @require      https://raw.githubusercontent.com/Ewpratten/bgp-tools-scripts/master/scripts/utils.js
+// @require      https://raw.githubusercontent.com/Ssmidge/bgp-tools-scripts/master/scripts/utils.js
 // ==/UserScript==
 
 // Entry
