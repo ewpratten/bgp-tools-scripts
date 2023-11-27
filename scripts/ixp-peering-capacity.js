@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         BGP.tools Peering Capacity Display
 // @namespace    http://kjartan.io/
-// @version      0.2
+// @version      0.3
 // @updateURL    https://raw.githubusercontent.com/ewpratten/bgp-tools-scripts/master/scripts/ixp-peering-capacity.js
 // @downloadURL  https://raw.githubusercontent.com/ewpratten/bgp-tools-scripts/master/scripts/ixp-peering-capacity.js
 // @description  Displays the total IX peering capacity of any given network on BGP.tools
