@@ -5,7 +5,7 @@
 // @updateURL    https://raw.githubusercontent.com/ewpratten/bgp-tools-scripts/master/scripts/ixp-peering-capacity.js
 // @downloadURL  https://raw.githubusercontent.com/ewpratten/bgp-tools-scripts/master/scripts/ixp-peering-capacity.js
 // @description  Displays the total IX peering capacity of any given network on BGP.tools
-// @author       Kjartan Hrafnkelsson
+// @author       Kjartan Hrafnkelsson <kjh14@hi.is>
 // @match        https://bgp.tools/as/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=bgp.tools
 // @grant        none
@@ -18,6 +18,8 @@ function formatBps(bps, decimals = 2) {
 }
 
 function parseBps(text) {
+  if (text == 'n/a') return 0;
+
   const [s, u] = text.split(' ');
   const unit = u.toLowerCase();
   const sizes = ['bps', 'kbps', 'mbps', 'gbps', 'tbps', 'pbps', 'ebps', 'zbps', 'ybps'];
@@ -46,8 +48,7 @@ function getOrCreateField() {
   let capacity = 0;
   document.querySelector('#ix-page').querySelectorAll('table tr').forEach(e => {
     const speed = e.querySelectorAll('td')[4];
-    if (speed)
-      capacity += parseBps(speed.textContent);
+    if (speed) capacity += parseBps(speed.textContent);
   });
   getOrCreateField().innerText = formatBps(capacity);
 
